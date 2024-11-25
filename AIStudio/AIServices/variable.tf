@@ -1,0 +1,3 @@
+variable "sku" {
+    type = string
+}
