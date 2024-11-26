@@ -60,13 +60,12 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: dev
-
-    # Checkout the repository to the GitHub Actions runner
-    steps:    
-      defaults:
+    defaults:
         run:
           working-directory: ./terraform/github-runners
-          
+
+    # Checkout the repository to the GitHub Actions runner
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
