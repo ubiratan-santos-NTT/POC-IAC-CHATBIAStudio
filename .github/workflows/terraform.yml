@@ -61,8 +61,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     defaults:
-        run:
-          working-directory: ./terraform/github-runners
+      run:
+        working-directory: ./terraform/github-runners
 
     # Checkout the repository to the GitHub Actions runner
     steps:
