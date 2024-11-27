@@ -86,9 +86,7 @@ jobs:
         run: ls
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-      - name: Terraform Init
-        env:
-          TF_LOG: DEBUG
+      - name: Terraform Init        
         run:  terraform init \
               -backend-config="resource_group_name=${{ vars.RESOURCE_GROUP_NAME }}"\
               -backend-config="storage_account_name=${{ vars.STORAGE_ACCOUNT_NAME }}"\
@@ -96,6 +94,7 @@ jobs:
               -backend-config="key=dev.terraform.tfstate"
         env:
           ARM_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
+          TF_LOG: DEBUG
 
     # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
