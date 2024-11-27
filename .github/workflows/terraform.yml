@@ -110,16 +110,17 @@ jobs:
     # Generates an execution plan for Terraform
       - name: Terraform Plan
         run: terraform plan -input=false 
-                -backend-config="resource_group_name=${{ vars.RESOURCE_GROUP_NAME }}"
-                -backend-config="storage_account_name=${{ vars.STORAGE_ACCOUNT_NAME }}"
-                -backend-config="container_name=${{ vars.CONTAINER_NAME }}"
-                -backend-config="key=dev.terraform.tfstate"
+                -var="resource_group_name=${{ vars.RESOURCE_GROUP_NAME }}"
+                -var="storage_account_name=${{ vars.STORAGE_ACCOUNT_NAME }}"
+                -var="container_name=${{ vars.CONTAINER_NAME }}"
+                -var="key=dev.terraform.tfstate"
         env:
           ARM_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+          TF_LOG: DEBUG
 
         # On push to "main", build or change infrastructure according to Terraform configuration files
         # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
