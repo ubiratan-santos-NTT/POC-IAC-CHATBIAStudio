@@ -74,6 +74,8 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+        env:
+          ACTIONS_STEP_DEBUG: true
 
     # Step 3: Configurar o Terraform
       - name: Setup Terraform
