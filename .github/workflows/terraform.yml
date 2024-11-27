@@ -114,6 +114,7 @@ jobs:
                 -var="storage_account_name=${{ vars.STORAGE_ACCOUNT_NAME }}"
                 -var="container_name=${{ vars.CONTAINER_NAME }}"
                 -var="key=dev.terraform.tfstate"
+                -var="github_token=${{ secrets.RUN_GITHUB_TOKEN }}"
         env:
           ARM_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
