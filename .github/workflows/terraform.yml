@@ -104,6 +104,8 @@ jobs:
     # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
         run: terraform fmt -check
+        env:
+          TF_LOG: DEBUG
 
     # Generates an execution plan for Terraform
       - name: Terraform Plan
