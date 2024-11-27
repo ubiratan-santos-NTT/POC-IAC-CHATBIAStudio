@@ -17,7 +17,7 @@ provider "azurerm" {
   backend "azurerm" {
     resource_group_name   = "rg-altice-chatgoc-dev"
     storage_account_name  = "iacpocstateiastudio"
-    container_name        = "var.container_name"
+    container_name        = var.container_name
     key                   = "key=dev.terraform.tfstate"
   }
 }
