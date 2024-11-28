@@ -69,6 +69,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Install azure-cli
+      - name: Azure Install CLI
+        uses: elstudio/action-install-azure-cli@v1
+
     # Step 2: Configurar o Azure CLI
       - name: Azure Login
         uses: azure/login@v2
