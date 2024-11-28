@@ -18,7 +18,7 @@ data "azurerm_resource_group" "rsg_ia" {
 }
 
 resource "azurerm_storage_account" "default" {
-  name                            = "teste-iac-action"
+  name                            = "testeiacaction"
   location                        = data.azurerm_resource_group.rsg_ia.location
   resource_group_name             = data.azurerm_resource_group.rsg_ia.name
   account_tier                    = "Standard"
