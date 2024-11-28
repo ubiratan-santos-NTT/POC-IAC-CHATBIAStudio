@@ -62,7 +62,7 @@ resource "azurerm_container_app" "container_app" {
       memory = "2Gi"
 
         env {
-            name  = "GITHUB_TOKEN"
+            name  = "ACCESS_TOKEN"
             value = var.github_token
         }
     }
