@@ -18,10 +18,10 @@ data "azurerm_resource_group" "rsg_ia" {
 }
 
 resource "azurerm_storage_account" "default" {
-  name                            = "${var.prefix}storage${random_string.suffix.result}"
-  location                        = azurerm_resource_group.rg.location
-  resource_group_name             = azurerm_resource_group.rg.name
+  name                            = "teste-iac-action"
+  location                        = data.azurerm_resource_group.rsg_ia.location
+  resource_group_name             = data.azurerm_resource_group.rsg_ia.name
   account_tier                    = "Standard"
-  account_replication_type        = "GRS"
+  account_replication_type        = "LRS"
   allow_nested_items_to_be_public = false
 }

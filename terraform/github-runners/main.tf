@@ -61,10 +61,30 @@ resource "azurerm_container_app" "container_app" {
       cpu    = 1
       memory = "2Gi"
 
-        env {
-            name  = "ACCESS_TOKEN"
-            value = var.github_token
-        }
+      env {
+        name  = "ACCESS_TOKEN"
+        value = var.github_token
+      }
+
+      env {
+        name: "RUNNER_SCOPE"
+        value = var.runner_scope
+      }
+
+      env {
+        name: "REPO_URL"
+        value = var.repo_url
+      }
+
+      env {
+        name = "DISABLE_AUTO_UPDATE"
+        value = var.disable_auto_update
+      }
+
+      env {
+        name: "RUNNER_NAME"
+        value = var.runner_name
+      }
     }
   }
 }
