@@ -24,7 +24,7 @@ jobs:
     runs-on: [self-hosted, linux, X64]
     defaults:
       run:
-        working-directory: ./terraform/github-runners
+        working-directory: ./terraform/Basic
         
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
